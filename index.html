@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Библиотечный фонд — Лицей № 5, Уфа</title>
+  <meta name="description" content="Библиотечный фонд лицея: 24 500 изданий, электронный каталог с поиском, учебники, классика, справочники и краеведение. Запись читателей и часы работы.">
+  <meta name="theme-color" content="#0f3d34">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Перейти к содержанию</a>
+
+  <header class="site-header" id="top">
+    <div class="container header__inner">
+      <a class="logo" href="#top" aria-label="Библиотека лицея № 5 — на главную">
+        <span class="logo__mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v15H6.5A2.5 2.5 0 0 0 4 20.5z"/>
+            <path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H19v3H6.5A2.5 2.5 0 0 1 4 20.5z"/>
+            <path d="M8 8h7M8 12h5"/>
+          </svg>
+        </span>
+        <span class="logo__text">
+          <strong>Библиотека</strong>
+          <span>Лицей № 5 · Уфа</span>
+        </span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Основная навигация">
+        <a href="#about">О фонде</a>
+        <a href="#fund">Состав фонда</a>
+        <a href="#catalog">Каталог</a>
+        <a href="#join">Как записаться</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+
+      <div class="header__actions">
+        <a class="btn btn--primary btn--sm" href="#join">Записаться</a>
+        <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ── Hero ─────────────────────────────────────────── -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>МАОУ «Лицей № 5» · Уфа</p>
+          <h1>Библиотечный <em>фонд</em> лицея</h1>
+          <p class="lead">
+            24 500 изданий для учёбы, чтения и исследований. Ищите книги
+            в электронном каталоге, бронируйте учебники и приходите в читальный зал.
+          </p>
+
+          <form class="hero__search" id="heroSearch" role="search">
+            <label class="sr-only" for="heroSearchInput">Поиск по фонду</label>
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/>
+            </svg>
+            <input id="heroSearchInput" type="search" name="q" placeholder="Название, автор или предмет…" autocomplete="off">
+            <button class="btn btn--primary" type="submit">Найти</button>
+          </form>
+
+          <ul class="hero__quick" aria-label="Популярные запросы">
+            <li class="hero__quick-label">Часто ищут:</li>
+            <li><button type="button" data-quick="Пушкин">Пушкин</button></li>
+            <li><button type="button" data-quick="Алгебра">Алгебра</button></li>
+            <li><button type="button" data-quick="краевед">Краеведение</button></li>
+            <li><button type="button" data-quick="Словарь">Словари</button></li>
+          </ul>
+        </div>
+
+        <div class="hero__art" aria-hidden="true">
+          <div class="hero__panel"></div>
+          <div class="shelf">
+            <span class="spine spine--a"><i>Классика</i></span>
+            <span class="spine spine--b"><i>Учебники</i></span>
+            <span class="spine spine--c"><i>Поэзия</i></span>
+            <span class="spine spine--d"><i>Краеведение</i></span>
+            <span class="spine spine--e"><i>Справочники</i></span>
+            <span class="spine spine--f"><i>История</i></span>
+            <span class="shelf__board"></span>
+          </div>
+          <div class="hero__badge">
+            <span class="hero__badge-dot"></span>
+            <span>
+              <strong>42 новых поступления</strong>
+              <span>за 2025/26 учебный год</span>
+            </span>
+          </div>
+          <div class="hero__note">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/>
+            </svg>
+            Пн–пт, 8:00–17:00
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Цифры ────────────────────────────────────────── -->
+    <section class="stats" aria-label="Фонд в цифрах">
+      <div class="container stats__grid">
+        <div class="stat">
+          <span class="stat__num" data-count="24500">0</span>
+          <span class="stat__label">экземпляров в фонде</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" data-count="8930">0</span>
+          <span class="stat__label">учебников и рабочих тетрадей</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" data-count="42">0</span>
+          <span class="stat__label">новых поступлений за год</span>
+        </div>
+        <div class="stat">
+          <span class="stat__num" data-count="1240">0</span>
+          <span class="stat__label">читателей записано</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── О фонде ──────────────────────────────────────── -->
+    <section class="section" id="about">
+      <div class="container about">
+        <div class="about__text">
+          <p class="eyebrow">О фонде</p>
+          <h2>Книги на каждый предмет и на каждый возраст</h2>
+          <p class="lead">
+            Фонд лицея формируется по учебным планам и запросам читателей. Здесь есть
+            всё для подготовки к урокам и олимпиадам — и полка художественной литературы,
+            которую школьники берут просто так, для себя.
+          </p>
+          <p>
+            Мы ежегодно обновляем учебники, выписываем профильные журналы и собираем
+            коллекцию книг о Башкортостане. Каждое издание описано в электронном
+            каталоге: видно, на какой полке оно стоит и сколько экземпляров свободно.
+          </p>
+          <ul class="checklist">
+            <li>Выдача на дом на 14 дней, учебники — на весь учебный год</li>
+            <li>Читальный зал на 30 мест и зона тихой работы</li>
+            <li>Подборки по запросу к уроку, проекту или экзамену</li>
+          </ul>
+          <a class="link-arrow" href="#catalog">
+            Перейти в каталог
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+        </div>
+
+        <aside class="fund-card" id="fund">
+          <div class="fund-card__head">
+            <h3>Состав фонда</h3>
+            <span class="fund-card__total">24 500 экз.</span>
+          </div>
+
+          <ul class="bars">
+            <li class="bar-row">
+              <div class="bar-row__top"><span>Учебная литература</span><strong>48%</strong></div>
+              <div class="bar"><span style="--v:48%;--c:var(--c1)"></span></div>
+              <p class="bar-row__note">11 760 экз. · учебники, рабочие тетради, атласы</p>
+            </li>
+            <li class="bar-row">
+              <div class="bar-row__top"><span>Художественная литература</span><strong>27%</strong></div>
+              <div class="bar"><span style="--v:27%;--c:var(--c2)"></span></div>
+              <p class="bar-row__note">6 615 экз. · классика, современная проза, поэзия</p>
+            </li>
+            <li class="bar-row">
+              <div class="bar-row__top"><span>Справочная и энциклопедическая</span><strong>15%</strong></div>
+              <div class="bar"><span style="--v:15%;--c:var(--c3)"></span></div>
+              <p class="bar-row__note">3 675 экз. · словари, энциклопедии, справочники</p>
+            </li>
+            <li class="bar-row">
+              <div class="bar-row__top"><span>Методическая и краеведение</span><strong>10%</strong></div>
+              <div class="bar"><span style="--v:10%;--c:var(--c4)"></span></div>
+              <p class="bar-row__note">2 450 экз. · пособия для педагогов, книги о крае</p>
+            </li>
+          </ul>
+
+          <div class="fund-card__foot">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.4 5.3 5.6.7-4.1 3.9 1.1 5.6L12 15.8 7 18.5l1.1-5.6L4 9l5.6-.7z"/></svg>
+            <span>Фонд обновлён в сентябре 2026 года</span>
+          </div>
+        </aside>
+      </div>
+
+      <div class="container features">
+        <article class="feature">
+          <span class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="4" width="17" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+          </span>
+          <h3>Электронный каталог</h3>
+          <p>Все издания с аннотациями, шифром и номером полки — ищите по названию, автору или разделу.</p>
+        </article>
+        <article class="feature">
+          <span class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V6a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M8 8h8M8 12h6"/></svg>
+          </span>
+          <h3>Читальный зал</h3>
+          <p>30 мест, тихая зона, Wi-Fi и доступ к компьютерам для подготовки к занятиям.</p>
+        </article>
+        <article class="feature">
+          <span class="feature__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-4.6 7-10a7 7 0 1 0-14 0c0 5.4 7 10 7 10z"/><circle cx="12" cy="11" r="2.6"/></svg>
+          </span>
+          <h3>Подборки к уроку</h3>
+          <p>Скажите тему — соберём комплект книг и статей для класса или проекта.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ── Каталог ──────────────────────────────────────── -->
+    <section class="section section--catalog" id="catalog">
+      <div class="container">
+        <div class="section__head">
+          <div>
+            <p class="eyebrow">Электронный каталог</p>
+            <h2>Найдите нужную книгу</h2>
+          </div>
+          <p class="section__note">Показаны издания из фонда лицея. Данные обновляются вручную — уточняйте наличие у библиотекаря.</p>
+        </div>
+
+        <div class="toolbar">
+          <div class="toolbar__search">
+            <label class="sr-only" for="catalogSearch">Поиск по каталогу</label>
+            <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4"/>
+            </svg>
+            <input id="catalogSearch" type="search" placeholder="Например: «Капитанская дочка» или Атанасян" autocomplete="off">
+            <button class="toolbar__clear" id="clearSearch" type="button" aria-label="Очистить поиск" hidden>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+            </button>
+          </div>
+
+          <div class="toolbar__sort">
+            <label for="sortSelect">Сортировка</label>
+            <select id="sortSelect">
+              <option value="default">По разделам</option>
+              <option value="title">По названию, А–Я</option>
+              <option value="year">Сначала новые</option>
+              <option value="author">По автору, А–Я</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="chips" id="chips" role="group" aria-label="Фильтр по разделам фонда">
+          <button class="chip is-active" type="button" data-cat="all">Все разделы</button>
+          <button class="chip" type="button" data-cat="Учебники">Учебники</button>
+          <button class="chip" type="button" data-cat="Художественная">Художественная</button>
+          <button class="chip" type="button" data-cat="Справочная">Справочная</button>
+          <button class="chip" type="button" data-cat="Методическая">Методическая</button>
+          <button class="chip" type="button" data-cat="Краеведение">Краеведение</button>
+        </div>
+
+        <p class="results" id="results" aria-live="polite">Показано 9 из 17 изданий</p>
+
+        <noscript>
+          <p class="noscript">Каталог с поиском и фильтрами работает только с включённым JavaScript. Список изданий и контакты библиотеки доступны ниже на странице.</p>
+        </noscript>
+
+        <div class="books" id="books"></div>
+
+        <div class="empty" id="empty" hidden>
+          <span class="empty__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m16.5 16.5 4 4M8.5 11h5"/></svg>
+          </span>
+          <h3>Ничего не нашлось</h3>
+          <p>Попробуйте другой запрос или выберите раздел фонда. Если книги точно должны быть — спросите библиотекаря.</p>
+          <button class="btn btn--ghost" type="button" id="resetSearch">Сбросить фильтры</button>
+        </div>
+
+        <div class="books__more">
+          <button class="btn btn--ghost" type="button" id="showMore" hidden>Показать ещё</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ── Как записаться ───────────────────────────────── -->
+    <section class="section" id="join">
+      <div class="container join">
+        <div class="join__text">
+          <p class="eyebrow">Как записаться</p>
+          <h2>Три шага до первой книги</h2>
+          <ol class="steps">
+            <li class="step">
+              <span class="step__num">01</span>
+              <div>
+                <h3>Возьмите бланк</h3>
+                <p>На абонементе или у классного руководителя. Для учеников до 14 лет нужно согласие родителя.</p>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step__num">02</span>
+              <div>
+                <h3>Получите формуляр</h3>
+                <p>Библиотекарь заведёт читательский формуляр и покажет, как искать книги в каталоге.</p>
+              </div>
+            </li>
+            <li class="step">
+              <span class="step__num">03</span>
+              <div>
+                <h3>Выберите книгу</h3>
+                <p>Забронируйте издание в каталоге или подойдите к полкам — выдадим на дом на 14 дней.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+
+        <aside class="hours-card">
+          <h3>Часы работы</h3>
+          <ul class="hours">
+            <li><span>Понедельник — пятница</span><strong>8:00 — 17:00</strong></li>
+            <li><span>Суббота</span><strong>9:00 — 14:00</strong></li>
+            <li><span>Воскресенье</span><strong class="muted">выходной</strong></li>
+            <li class="hours__pause"><span>Технический перерыв</span><strong>13:00 — 13:30</strong></li>
+          </ul>
+          <div class="hours-card__foot">
+            <p>Последняя среда месяца — санитарный день.</p>
+            <a class="btn btn--primary btn--block" href="#contacts">Связаться с библиотекой</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- ── Контакты ─────────────────────────────────────── -->
+    <section class="section section--contacts" id="contacts">
+      <div class="container contacts">
+        <div class="contacts__info">
+          <p class="eyebrow">Контакты</p>
+          <h2>Заходите — мы на втором этаже</h2>
+          <p class="lead">Библиотека лицея открыта для учеников, педагогов и родителей.</p>
+
+          <ul class="contact-list">
+            <li>
+              <span class="contact-list__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-4.6 7-10a7 7 0 1 0-14 0c0 5.4 7 10 7 10z"/><circle cx="12" cy="11" r="2.6"/></svg>
+              </span>
+              <span><strong>Адрес</strong><span>г. Уфа, ул. Школьная, 5, каб. 214</span></span>
+            </li>
+            <li>
+              <span class="contact-list__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h3.5l1.5 4-2 1.5a12 12 0 0 0 6.5 6.5l1.5-2 4 1.5V20a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg>
+              </span>
+              <span><strong>Телефон</strong><a href="tel:+73470000000">+7 (347) 000-00-00</a></span>
+            </li>
+            <li>
+              <span class="contact-list__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
+              </span>
+              <span><strong>Почта</strong><a href="mailto:biblioteka@licey5-ufa.ru">biblioteka@licey5-ufa.ru</a></span>
+            </li>
+            <li>
+              <span class="contact-list__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/></svg>
+              </span>
+              <span><strong>Режим работы</strong><span>Пн–пт 8:00–17:00, сб 9:00–14:00</span></span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="contacts__map" role="img" aria-label="Схема расположения библиотеки: улица Школьная, 5, кабинет 214">
+          <div class="map">
+            <span class="map__road map__road--h"></span>
+            <span class="map__road map__road--v"></span>
+            <span class="map__block map__block--1"></span>
+            <span class="map__block map__block--2"></span>
+            <span class="map__block map__block--3"></span>
+            <span class="map__block map__block--4"></span>
+            <span class="map__pin">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-4.6 7-10a7 7 0 1 0-14 0c0 5.4 7 10 7 10z"/><circle cx="12" cy="11" r="2.6"/></svg>
+            </span>
+            <span class="map__label">Лицей № 5 · библиотека</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer__inner">
+      <div class="footer__brand">
+        <a class="logo logo--footer" href="#top">
+          <span class="logo__mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H19v3H6.5A2.5 2.5 0 0 1 4 20.5z"/></svg>
+          </span>
+          <span class="logo__text"><strong>Библиотека лицея № 5</strong><span>г. Уфа</span></span>
+        </a>
+        <p>Фонд для учёбы, чтения и исследований. Открыто для учеников, педагогов и родителей.</p>
+      </div>
+      <nav class="footer__nav" aria-label="Навигация в подвале">
+        <a href="#about">О фонде</a>
+        <a href="#fund">Состав фонда</a>
+        <a href="#catalog">Каталог</a>
+        <a href="#join">Как записаться</a>
+        <a href="#contacts">Контакты</a>
+      </nav>
+      <div class="footer__meta">
+        <p>© 2026 МАОУ «Лицей № 5» г. Уфа</p>
+        <p class="footer__note">Учебный демонстрационный сайт. Названия, адреса и цифры — пример.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── Модальное окно книги ───────────────────────────── -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+      <button class="modal__close" type="button" data-close aria-label="Закрыть окно">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
+      </button>
+      <div class="modal__body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
