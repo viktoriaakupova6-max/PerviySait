@@ -51,10 +51,19 @@
   }
 
   function availability(book) {
-    if (book.free > 0) {
-      return `<span class="badge badge--in">Свободно: ${book.free} ${plural(book.free, 'экз.', 'экз.', 'экз.')}</span>`;
-    }
-    return '<span class="badge badge--out">Все выданы</span>';
+    const inFund = `В фонде: ${book.total} ${plural(book.total, 'экз.', 'экз.', 'экз.')}`;
+    const free = book.free > 0
+      ? `свободно <b>${book.free}</b>`
+      : '<b>все выданы</b>';
+    return `<p class="book__avail">${inFund} · ${free}</p>`;
+  }
+
+  const readIcon = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 6.5C10.5 5.2 8.6 4.6 6 4.6c-.8 0-1.5.1-2 .2v14c.5-.1 1.2-.2 2-.2 2.6 0 4.5.6 6 1.9 1.5-1.3 3.4-1.9 6-1.9.8 0 1.5.1 2 .2v-14c-.5-.1-1.2-.2-2-.2-2.6 0-4.5.6-6 1.9z"/><path d="M12 6.5v14"/></svg>`;
+
+  function readButton(book, extraClass) {
+    return `<button class="btn--read ${extraClass || ''}" type="button" data-read="${book.id}">
+      ${readIcon} Читать
+    </button>`;
   }
 
   function cardMarkup(book, index) {
@@ -65,8 +74,9 @@
           <p class="book__meta">${esc(book.category)} · ${book.year}</p>
           <h3 class="book__title">${esc(book.title)}</h3>
           <p class="book__author">${esc(book.author)}</p>
+          ${availability(book)}
           <div class="book__foot">
-            ${availability(book)}
+            ${readButton(book)}
             <button class="book__more" type="button" data-open="${book.id}">Подробнее</button>
           </div>
         </div>
@@ -250,9 +260,7 @@
           <div><dt>Свободно</dt><dd>${book.free > 0 ? book.free + ' ' + plural(book.free, 'экземпляр', 'экземпляра', 'экземпляров') : 'нет'}</dd></div>
         </dl>
         <div class="modal__actions">
-          <button class="btn" type="button" data-reserve="${book.id}" ${book.free === 0 ? 'disabled' : ''}>
-            ${book.free === 0 ? 'Все экземпляры выданы' : 'Забронировать'}
-          </button>
+          ${readButton(book, 'btn--read--lg')}
           <button class="btn btn--ghost" type="button" data-close>Закрыть</button>
         </div>
       </div>
@@ -270,17 +278,6 @@
     modalDialog.scrollTop = 0;
     modalDialog.focus();
 
-    const reserveBtn = $('[data-reserve]', modalBody);
-    if (reserveBtn) {
-      reserveBtn.addEventListener('click', () => {
-        const b = BOOKS.find((item) => item.id === reserveBtn.dataset.reserve);
-        if (!b) return;
-        b.free = Math.max(0, b.free - 1);
-        closeModal();
-        render();
-        showToast(`«${b.title}» забронирована. Заберите до 18:00 в каб. 214.`);
-      });
-    }
   }
 
   function closeModal() {
@@ -312,6 +309,16 @@
   }
 
   document.addEventListener('click', (e) => {
+    const readTarget = e.target.closest('[data-read]');
+    if (readTarget) {
+      e.preventDefault();
+      closeModal();
+      if (window.Reader && typeof window.Reader.open === 'function') {
+        window.Reader.open(readTarget.dataset.read);
+      }
+      return;
+    }
+
     const opener = e.target.closest('[data-open]');
     if (opener) {
       openModal(opener.dataset.open);

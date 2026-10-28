@@ -3,10 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Библиотечный фонд — Лицей № 5, Уфа</title>
-  <meta name="description" content="Библиотечный фонд лицея: 24 500 изданий, электронный каталог с поиском, учебники, классика, справочники и краеведение. Запись читателей и часы работы.">
-  <meta name="theme-color" content="#0f3d34">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <title>Библиотечный фонд — Уфимский машиностроительный колледж</title>
+  <meta name="description" content="Библиотечный фонд ГБПОУ «Уфимский машиностроительный колледж»: электронный каталог с поиском, чтение книг онлайн, учебники, классика, справочники и краеведение. Борисоглебская, 32.">
+  <meta name="theme-color" content="#264796">
+  <link rel="icon" href="assets/logo-96.png" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -14,17 +15,13 @@
 
   <header class="site-header" id="top">
     <div class="container header__inner">
-      <a class="logo" href="#top" aria-label="Библиотека лицея № 5 — на главную">
-        <span class="logo__mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v15H6.5A2.5 2.5 0 0 0 4 20.5z"/>
-            <path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H19v3H6.5A2.5 2.5 0 0 1 4 20.5z"/>
-            <path d="M8 8h7M8 12h5"/>
-          </svg>
+      <a class="logo" href="#top" aria-label="Библиотека Уфимского машиностроительного колледжа — на главную">
+        <span class="logo__mark">
+          <img src="assets/logo.png" alt="Логотип ГБПОУ «Уфимский машиностроительный колледж»" width="56" height="56">
         </span>
         <span class="logo__text">
-          <strong>Библиотека</strong>
-          <span>Лицей № 5 · Уфа</span>
+          <strong>Библиотека УМК</strong>
+          <span>Уфимский машиностроительный колледж</span>
         </span>
       </a>
 
@@ -37,7 +34,6 @@
       </nav>
 
       <div class="header__actions">
-        <a class="btn btn--primary btn--sm" href="#join">Записаться</a>
         <button class="burger" type="button" aria-expanded="false" aria-controls="nav" aria-label="Открыть меню">
           <span></span><span></span><span></span>
         </button>
@@ -50,11 +46,11 @@
     <section class="hero">
       <div class="container hero__inner">
         <div class="hero__text">
-          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>МАОУ «Лицей № 5» · Уфа</p>
-          <h1>Библиотечный <em>фонд</em> лицея</h1>
+          <p class="eyebrow"><span class="dot" aria-hidden="true"></span>ГБПОУ «Уфимский машиностроительный колледж»</p>
+          <h1>Библиотечный <em>фонд</em> колледжа</h1>
           <p class="lead">
-            24 500 изданий для учёбы, чтения и исследований. Ищите книги
-            в электронном каталоге, бронируйте учебники и приходите в читальный зал.
+            24 500 изданий для учёбы, курсовых и профессионального чтения. Ищите книги
+            в электронном каталоге и читайте прямо на сайте.
           </p>
 
           <form class="hero__search" id="heroSearch" role="search">
@@ -75,29 +71,36 @@
           </ul>
         </div>
 
-        <div class="hero__art" aria-hidden="true">
-          <div class="hero__panel"></div>
-          <div class="shelf">
+        <div class="hero__art">
+          <div class="hero__panel" aria-hidden="true"></div>
+
+          <div class="hero__art-top">
+            <span class="hero__note">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/>
+              </svg>
+              Пн–пт, 8:00–17:00
+            </span>
+          </div>
+
+          <div class="shelf" aria-hidden="true">
             <span class="spine spine--a"><i>Классика</i></span>
             <span class="spine spine--b"><i>Учебники</i></span>
-            <span class="spine spine--c"><i>Поэзия</i></span>
+            <span class="spine spine--c"><i>Техника</i></span>
             <span class="spine spine--d"><i>Краеведение</i></span>
             <span class="spine spine--e"><i>Справочники</i></span>
             <span class="spine spine--f"><i>История</i></span>
             <span class="shelf__board"></span>
           </div>
-          <div class="hero__badge">
-            <span class="hero__badge-dot"></span>
-            <span>
-              <strong>42 новых поступления</strong>
-              <span>за 2025/26 учебный год</span>
+
+          <div class="hero__art-bottom">
+            <span class="hero__badge">
+              <span class="hero__badge-dot" aria-hidden="true"></span>
+              <span>
+                <strong>42 новых поступления</strong>
+                <span>за 2025/26 учебный год</span>
+              </span>
             </span>
-          </div>
-          <div class="hero__note">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3 2"/>
-            </svg>
-            Пн–пт, 8:00–17:00
           </div>
         </div>
       </div>
@@ -130,21 +133,21 @@
       <div class="container about">
         <div class="about__text">
           <p class="eyebrow">О фонде</p>
-          <h2>Книги на каждый предмет и на каждый возраст</h2>
+          <h2>Книги для каждой специальности и для каждого читателя</h2>
           <p class="lead">
-            Фонд лицея формируется по учебным планам и запросам читателей. Здесь есть
-            всё для подготовки к урокам и олимпиадам — и полка художественной литературы,
-            которую школьники берут просто так, для себя.
+            Фонд колледжа формируется по учебным планам специальностей и запросам
+            студентов и преподавателей: от учебников по технологии машиностроения
+            до классики и книг о Башкортостане.
           </p>
           <p>
-            Мы ежегодно обновляем учебники, выписываем профильные журналы и собираем
-            коллекцию книг о Башкортостане. Каждое издание описано в электронном
-            каталоге: видно, на какой полке оно стоит и сколько экземпляров свободно.
+            Каждое издание описано в электронном каталоге: видно, на какой полке оно
+            стоит, сколько экземпляров в фонде и свободно ли издание. Часть книг можно
+            открыть и прочитать прямо на сайте — кнопка «Читать» в карточке издания.
           </p>
           <ul class="checklist">
             <li>Выдача на дом на 14 дней, учебники — на весь учебный год</li>
-            <li>Читальный зал на 30 мест и зона тихой работы</li>
-            <li>Подборки по запросу к уроку, проекту или экзамену</li>
+            <li>Читальный зал, зона тихой работы и доступ к компьютерам</li>
+            <li>Подборки по запросу к уроку, курсовой, диплому или конкурсу</li>
           </ul>
           <a class="link-arrow" href="#catalog">
             Перейти в каталог
@@ -198,17 +201,17 @@
         </article>
         <article class="feature">
           <span class="feature__icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5V6a2 2 0 0 1 2-2h12v16H6a2 2 0 0 0-2 2z"/><path d="M8 8h8M8 12h6"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H19v3H6.5A2.5 2.5 0 0 1 4 20.5z"/><path d="M8 8h7M8 12h5"/></svg>
           </span>
-          <h3>Читальный зал</h3>
-          <p>30 мест, тихая зона, Wi-Fi и доступ к компьютерам для подготовки к занятиям.</p>
+          <h3>Чтение онлайн</h3>
+          <p>Открывайте произведение в режиме чтения: настройте размер шрифта и тему, вернитесь к тому месту, где остановились.</p>
         </article>
         <article class="feature">
           <span class="feature__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-4.6 7-10a7 7 0 1 0-14 0c0 5.4 7 10 7 10z"/><circle cx="12" cy="11" r="2.6"/></svg>
           </span>
           <h3>Подборки к уроку</h3>
-          <p>Скажите тему — соберём комплект книг и статей для класса или проекта.</p>
+          <p>Скажите тему — соберём комплект книг и статей для группы, проекта или курсовой работы.</p>
         </article>
       </div>
     </section>
@@ -221,7 +224,7 @@
             <p class="eyebrow">Электронный каталог</p>
             <h2>Найдите нужную книгу</h2>
           </div>
-          <p class="section__note">Показаны издания из фонда лицея. Данные обновляются вручную — уточняйте наличие у библиотекаря.</p>
+          <p class="section__note">Издания из фонда колледжа. Кнопка «Читать» открывает текст онлайн; наличие уточняйте у библиотекаря.</p>
         </div>
 
         <div class="toolbar">
@@ -256,7 +259,7 @@
           <button class="chip" type="button" data-cat="Краеведение">Краеведение</button>
         </div>
 
-        <p class="results" id="results" aria-live="polite">Показано 9 из 17 изданий</p>
+        <p class="results" id="results" aria-live="polite">Показано 9 изданий</p>
 
         <noscript>
           <p class="noscript">Каталог с поиском и фильтрами работает только с включённым JavaScript. Список изданий и контакты библиотеки доступны ниже на странице.</p>
@@ -290,21 +293,21 @@
               <span class="step__num">01</span>
               <div>
                 <h3>Возьмите бланк</h3>
-                <p>На абонементе или у классного руководителя. Для учеников до 14 лет нужно согласие родителя.</p>
+                <p>На абонементе в административном корпусе или у куратора группы. Для студентов младше 18 лет нужно согласие родителя.</p>
               </div>
             </li>
             <li class="step">
               <span class="step__num">02</span>
               <div>
                 <h3>Получите формуляр</h3>
-                <p>Библиотекарь заведёт читательский формуляр и покажет, как искать книги в каталоге.</p>
+                <p>Библиотекарь заведёт читательский формуляр и покажет, как искать книги в каталоге и читать их онлайн.</p>
               </div>
             </li>
             <li class="step">
               <span class="step__num">03</span>
               <div>
                 <h3>Выберите книгу</h3>
-                <p>Забронируйте издание в каталоге или подойдите к полкам — выдадим на дом на 14 дней.</p>
+                <p>Откройте издание в каталоге и читайте онлайн или подойдите к полкам — выдадим на дом на 14 дней.</p>
               </div>
             </li>
           </ol>
@@ -320,7 +323,7 @@
           </ul>
           <div class="hours-card__foot">
             <p>Последняя среда месяца — санитарный день.</p>
-            <a class="btn btn--primary btn--block" href="#contacts">Связаться с библиотекой</a>
+            <a class="btn btn--block" href="#contacts">Связаться с библиотекой</a>
           </div>
         </aside>
       </div>
@@ -331,15 +334,15 @@
       <div class="container contacts">
         <div class="contacts__info">
           <p class="eyebrow">Контакты</p>
-          <h2>Заходите — мы на втором этаже</h2>
-          <p class="lead">Библиотека лицея открыта для учеников, педагогов и родителей.</p>
+          <h2>Ждём вас в административном корпусе</h2>
+          <p class="lead">Библиотека колледжа открыта для студентов, преподавателей и сотрудников.</p>
 
           <ul class="contact-list">
             <li>
               <span class="contact-list__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-4.6 7-10a7 7 0 1 0-14 0c0 5.4 7 10 7 10z"/><circle cx="12" cy="11" r="2.6"/></svg>
               </span>
-              <span><strong>Адрес</strong><span>г. Уфа, ул. Школьная, 5, каб. 214</span></span>
+              <span><strong>Адрес</strong><span>г. Уфа, ул. Борисоглебская, 32, административный корпус, 1 этаж</span></span>
             </li>
             <li>
               <span class="contact-list__icon" aria-hidden="true">
@@ -351,7 +354,7 @@
               <span class="contact-list__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
               </span>
-              <span><strong>Почта</strong><a href="mailto:biblioteka@licey5-ufa.ru">biblioteka@licey5-ufa.ru</a></span>
+              <span><strong>Почта</strong><a href="mailto:biblioteka@umk-ufa.ru">biblioteka@umk-ufa.ru</a></span>
             </li>
             <li>
               <span class="contact-list__icon" aria-hidden="true">
@@ -362,7 +365,7 @@
           </ul>
         </div>
 
-        <div class="contacts__map" role="img" aria-label="Схема расположения библиотеки: улица Школьная, 5, кабинет 214">
+        <div class="contacts__map" role="img" aria-label="Схема расположения библиотеки: улица Борисоглебская, 32, административный корпус, 1 этаж">
           <div class="map">
             <span class="map__road map__road--h"></span>
             <span class="map__road map__road--v"></span>
@@ -373,7 +376,7 @@
             <span class="map__pin">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-4.6 7-10a7 7 0 1 0-14 0c0 5.4 7 10 7 10z"/><circle cx="12" cy="11" r="2.6"/></svg>
             </span>
-            <span class="map__label">Лицей № 5 · библиотека</span>
+            <span class="map__label">Борисоглебская, 32 · 1 этаж</span>
           </div>
         </div>
       </div>
@@ -384,12 +387,15 @@
     <div class="container footer__inner">
       <div class="footer__brand">
         <a class="logo logo--footer" href="#top">
-          <span class="logo__mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H19v15H6.5A2.5 2.5 0 0 0 4 20.5z"/><path d="M4 20.5A2.5 2.5 0 0 1 6.5 18H19v3H6.5A2.5 2.5 0 0 1 4 20.5z"/></svg>
+          <span class="logo__mark">
+            <img src="assets/logo.png" alt="" width="56" height="56">
           </span>
-          <span class="logo__text"><strong>Библиотека лицея № 5</strong><span>г. Уфа</span></span>
+          <span class="logo__text">
+            <strong>Библиотека УМК</strong>
+            <span>ГБПОУ «Уфимский машиностроительный колледж»</span>
+          </span>
         </a>
-        <p>Фонд для учёбы, чтения и исследований. Открыто для учеников, педагогов и родителей.</p>
+        <p>Фонд для учёбы, чтения и профессионального роста. Открыт для студентов, преподавателей и сотрудников колледжа.</p>
       </div>
       <nav class="footer__nav" aria-label="Навигация в подвале">
         <a href="#about">О фонде</a>
@@ -399,8 +405,8 @@
         <a href="#contacts">Контакты</a>
       </nav>
       <div class="footer__meta">
-        <p>© 2026 МАОУ «Лицей № 5» г. Уфа</p>
-        <p class="footer__note">Учебный демонстрационный сайт. Названия, адреса и цифры — пример.</p>
+        <p>© 2026 ГБПОУ «Уфимский машиностроительный колледж»</p>
+        <p class="footer__note">Учебный демонстрационный сайт. Телефон, почта и цифры фонда — пример, замените на реальные данные.</p>
       </div>
     </div>
   </footer>
@@ -416,9 +422,43 @@
     </div>
   </div>
 
+  <!-- ── Режим чтения ──────────────────────────────────── -->
+  <div class="reader" id="reader" hidden role="dialog" aria-modal="true" aria-label="Чтение книги">
+    <div class="reader__bar">
+      <button class="reader__back" type="button" id="readerClose" aria-label="Закрыть чтение">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+        <span>К каталогу</span>
+      </button>
+
+      <div class="reader__title" id="readerTitle"></div>
+
+      <div class="reader__tools">
+        <button class="reader__tool" type="button" id="readerFontDown" aria-label="Уменьшить шрифт">A−</button>
+        <button class="reader__tool" type="button" id="readerFontUp" aria-label="Увеличить шрифт">A+</button>
+        <button class="reader__tool reader__tool--wide" type="button" id="readerTheme" aria-label="Сменить тему чтения">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M18.4 5.6L17 7M7 17l-1.4 1.4"/></svg>
+          <span id="readerThemeLabel">Тема</span>
+        </button>
+        <button class="reader__tool" type="button" id="readerTocBtn" aria-expanded="false" aria-controls="readerToc" hidden>Содержание</button>
+      </div>
+      <div class="reader__progress" aria-hidden="true"><span id="readerProgressBar"></span></div>
+    </div>
+
+    <div class="reader__scroll" id="readerScroll">
+      <article class="reader__page" id="readerPage"></article>
+      <nav class="reader__toc" id="readerToc" hidden aria-label="Содержание книги"></nav>
+      <div class="reader__nav">
+        <button class="btn btn--ghost" type="button" id="readerPrev" hidden>← Предыдущая глава</button>
+        <button class="btn btn--ghost" type="button" id="readerNext" hidden>Следующая глава →</button>
+      </div>
+    </div>
+  </div>
+
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="js/data.js"></script>
+  <script src="js/texts.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/reader.js"></script>
 </body>
 </html>
