@@ -3,6 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
+      - main
       - "arena/7536ba5f-perviysait"
   workflow_dispatch:
 
