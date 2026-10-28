@@ -251,6 +251,9 @@
         <h2 class="modal__title" id="modalTitle">${esc(book.title)}</h2>
         <p class="modal__author">${esc(book.author)}</p>
         <p class="modal__desc">${esc(book.annotation)}</p>
+        ${book.online
+          ? `<p class="modal__online"><b>Онлайн:</b> ${esc(book.online)}. Полный текст печатного издания — в фонде библиотеки.</p>`
+          : ''}
         <dl class="specs">
           <div><dt>Год издания</dt><dd>${book.year}</dd></div>
           <div><dt>Издательство</dt><dd>${esc(book.publisher)}</dd></div>

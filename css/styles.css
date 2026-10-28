@@ -1779,3 +1779,17 @@ body.is-reading { overflow: hidden; }
 /* ---------- Названия на корешках не должны вылезать за книгу ---------- */
 .spine { overflow: hidden; }
 .spine i { overflow: hidden; text-overflow: ellipsis; }
+
+/* ---------- Пометка об онлайн-версии в карточке издания ---------- */
+.modal__online {
+  margin: 0 0 18px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--accent, #01a0e2);
+  border-radius: 8px;
+  background: rgba(1, 160, 226, 0.08);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  color: var(--ink-soft, #44536b);
+}
+
+.modal__online b { color: var(--ink, #17233a); }
