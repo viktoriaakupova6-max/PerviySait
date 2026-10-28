@@ -1775,3 +1775,7 @@ body.is-reading { overflow: hidden; }
 .btn--primary:hover { background: var(--accent-2); }
 .bar-row { display: block; }
 .contacts__map { min-width: 0; }
+
+/* ---------- Названия на корешках не должны вылезать за книгу ---------- */
+.spine { overflow: hidden; }
+.spine i { overflow: hidden; text-overflow: ellipsis; }
