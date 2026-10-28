@@ -109,7 +109,7 @@
   }
 
   function renderToc() {
-    const many = chapters.length > 1;
+    const many = chapters.length > 1 && chapters.some((ch) => ch.title);
     tocBtn.hidden = !many;
     tocEl.hidden = true;
     tocBtn.setAttribute('aria-expanded', 'false');
@@ -136,7 +136,7 @@
     if (!chapter) return;
 
     pageEl.innerHTML = chapterIndex === 0
-      ? bookHead(currentBook) + chapterMarkup(chapter, 0) + (currentBook.__source ? '' : '')
+      ? bookHead(currentBook) + chapterMarkup(chapter, 0)
       : chapterMarkup(chapter, 0);
 
     if (chapters.length > 1) {
@@ -166,11 +166,11 @@
     progressBar.style.width = (ratio * 100).toFixed(2) + '%';
   }
 
-  function savePosition() {
+  function savePosition(immediate) {
     if (!currentBook) return;
     window.clearTimeout(saveTimer);
     const bookId = currentBook.id;
-    saveTimer = window.setTimeout(() => {
+    const write = () => {
       const all = store.get(STORE_POS, {});
       const max = scrollEl.scrollHeight - scrollEl.clientHeight;
       all[bookId] = {
@@ -179,6 +179,10 @@
         updated: Date.now()
       };
       store.set(STORE_POS, all);
+    };
+    if (immediate) { write(); return; }
+    saveTimer = window.setTimeout(() => {
+      write();
     }, 250);
   }
 
@@ -190,19 +194,58 @@
   /* ---------- Загрузка текста ---------- */
 
   function textToChapters(raw) {
-    const blocks = raw.replace(/\r\n/g, '\n').split(/\n{2,}/).map((s) => s.trim()).filter(Boolean);
-    const out = [];
+    const lines = raw.replace(/\r\n/g, '\n').replace(/\r/g, '\n').split('\n');
+    const chapters = [];
+    let title = null;
+    let buffer = [];
 
-    blocks.forEach((block) => {
-      const lines = block.split('\n').map((l) => l.trim()).filter((l) => l.length > 0);
-      const isVerse = lines.length > 1 && lines.filter((l) => l.length > 0).length > 1 &&
-        lines.reduce((sum, l) => sum + l.length, 0) / lines.length < 58;
+    const push = () => {
+      const blocks = [];
+      buffer.join('\n').split(/\n{2,}/).forEach((paragraph) => {
+        const clean = paragraph.trim();
+        if (!clean) return;
 
-      if (isVerse) out.push({ type: 'verse', lines });
-      else out.push({ type: 'p', text: lines.join(' ') });
+        const rows = clean.split('\n').map((l) => l.trim()).filter(Boolean);
+        const avg = rows.reduce((sum, l) => sum + l.length, 0) / rows.length;
+        const isVerse = rows.length > 1 && avg < 58 && !/[.!?…]\s/.test(rows.join(' ').slice(0, 40));
+
+        if (isVerse) blocks.push({ type: 'verse', lines: rows });
+        else blocks.push({ type: 'p', text: rows.join(' ') });
+      });
+      chapters.push({ title, blocks });
+    };
+
+    lines.forEach((line) => {
+      const trimmed = line.trim();
+      if (trimmed.startsWith('# ')) {
+        if (buffer.join('').trim() || title !== null) push();
+        buffer = [];
+        title = trimmed.slice(2).trim();
+        return;
+      }
+      buffer.push(line);
     });
+    push();
 
-    return [{ title: null, blocks: out }];
+    const filled = chapters.filter((ch) => ch.blocks.length > 0);
+
+    // «ЧАСТЬ ПЕРВАЯ» и подобные разделы приклеиваем к следующей главе как подзаголовок
+    const merged = [];
+    let pendingPart = null;
+    filled.forEach((ch) => {
+      if (ch.title && /^(ЧАСТЬ|Часть)(\s|$)/.test(ch.title) && ch.blocks.length <= 6) {
+        pendingPart = ch.title;
+        return;
+      }
+      if (pendingPart) {
+        ch.blocks = [{ type: 'subhead', text: pendingPart }].concat(ch.blocks);
+        pendingPart = null;
+      }
+      merged.push(ch);
+    });
+    if (pendingPart) merged.push({ title: pendingPart, blocks: [] });
+
+    return merged.length ? merged : [{ title: null, blocks: [] }];
   }
 
   async function loadText(book) {
@@ -278,7 +321,7 @@
 
   function close() {
     if (reader.hidden) return;
-    savePosition();
+    savePosition(true);
     reader.hidden = true;
     document.body.classList.remove('is-reading');
     pageEl.innerHTML = '';
