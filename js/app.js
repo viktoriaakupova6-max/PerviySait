@@ -62,7 +62,7 @@
 
   function readButton(book, extraClass) {
     return `<button class="btn--read ${extraClass || ''}" type="button" data-read="${book.id}">
-      ${readIcon} Читать
+      ${readIcon} Открыть
     </button>`;
   }
 

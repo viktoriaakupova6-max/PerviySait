@@ -226,6 +226,10 @@ h1 em {
   place-items: center;
   width: 52px; height: 52px;
   flex-shrink: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(38, 71, 150, 0.14);
 }
 .logo__mark img {
   width: 100%;
@@ -1743,3 +1747,31 @@ body.is-reading { overflow: hidden; }
   font-size: 0.9375rem;
 }
 .btn--read--lg svg { width: 17px; height: 17px; }
+
+
+/* =========================================================
+   Гарантия раскладки первого экрана:
+   полка, часы и плашка новинок — отдельные строки flex-колонки,
+   ни один элемент не позиционируется поверх другого
+   ========================================================= */
+.hero__art { display: flex; flex-direction: column; }
+.hero__art-top,
+.hero__art-bottom { position: static; flex: 0 0 auto; }
+.shelf {
+  position: relative;
+  flex: 1 1 auto;
+  min-height: 132px;
+  max-height: 240px;
+  align-self: stretch;
+}
+.shelf > span { position: relative; }
+
+@media (max-width: 680px) {
+  .shelf { min-height: 112px; max-height: 160px; }
+}
+
+/* ---------- Явные базовые классы кнопок ---------- */
+.btn--primary { background: var(--accent); color: #fff; }
+.btn--primary:hover { background: var(--accent-2); }
+.bar-row { display: block; }
+.contacts__map { min-width: 0; }

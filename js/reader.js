@@ -28,6 +28,7 @@
   const STORE_POS = 'umk-reader-pos';
 
   let currentBook = null;
+  let fontSize = 1.125;
   let chapters = [];
   let chapterIndex = 0;
   let lastFocused = null;
@@ -164,10 +165,11 @@
   function savePosition() {
     if (!currentBook) return;
     window.clearTimeout(saveTimer);
+    const bookId = currentBook.id;
     saveTimer = window.setTimeout(() => {
       const all = store.get(STORE_POS, {});
       const max = scrollEl.scrollHeight - scrollEl.clientHeight;
-      all[currentBook.id] = {
+      all[bookId] = {
         chapter: chapterIndex,
         ratio: max > 0 ? scrollEl.scrollTop / max : 0,
         updated: Date.now()
@@ -293,9 +295,10 @@
   /* ---------- Настройки ---------- */
 
   function applyFont(size) {
-    const clamped = Math.min(1.6, Math.max(0.95, size));
-    pageEl.style.setProperty('--reader-font', clamped + 'rem');
-    store.set(STORE_FONT, clamped);
+    fontSize = Math.min(1.6, Math.max(0.95, Math.round(size * 1000) / 1000));
+    pageEl.style.setProperty('--reader-font', fontSize + 'rem');
+    reader.style.setProperty('--reader-font', fontSize + 'rem');
+    store.set(STORE_FONT, fontSize);
   }
 
   function applyTheme(theme) {
@@ -311,14 +314,8 @@
   prevBtn.addEventListener('click', () => goToChapter(chapterIndex - 1));
   nextBtn.addEventListener('click', () => goToChapter(chapterIndex + 1));
 
-  fontUp.addEventListener('click', () => {
-    const current = parseFloat(getComputedStyle(pageEl).fontSize) / 16;
-    applyFont(current + 0.075);
-  });
-  fontDown.addEventListener('click', () => {
-    const current = parseFloat(getComputedStyle(pageEl).fontSize) / 16;
-    applyFont(current - 0.075);
-  });
+  fontUp.addEventListener('click', () => applyFont(fontSize + 0.075));
+  fontDown.addEventListener('click', () => applyFont(fontSize - 0.075));
 
   themeBtn.addEventListener('click', () => {
     const order = ['light', 'sepia', 'night'];
