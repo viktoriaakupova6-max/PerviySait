@@ -125,6 +125,30 @@ h1 em {
   letter-spacing: -0.01em;
 }
 
+/* ---------- Основной текст — по ширине ---------- */
+/* Абзацы-«простыни» выравниваются по обоим краям, с переносами (lang="ru"),
+   короткие подписи, кнопки и стихи остаются по левому краю / по центру */
+.hero__text .lead,
+.about__text > p:not(.eyebrow),
+.about__text .checklist li,
+.feature p,
+.step p,
+.hours-card p,
+.contacts__info .lead,
+.contact-list li,
+.map-caption,
+.section__note,
+.footer__note,
+.modal__desc,
+.modal__online,
+.noscript,
+.reader__page > p:not(.verse):not(.stanza-num):not(.reader__loading):not(.reader__src) {
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  text-justify: inter-word;
+}
+
 .eyebrow {
   display: inline-flex;
   align-items: center;
