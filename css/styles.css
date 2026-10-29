@@ -470,7 +470,7 @@ h1 em {
   display: flex;
   align-items: flex-end;
   gap: clamp(6px, 1vw, 12px);
-  height: clamp(132px, 21vw, 208px);
+  height: clamp(144px, 21vw, 208px);
   margin: 0 3% 14px;
   z-index: 1;
 }
@@ -478,6 +478,7 @@ h1 em {
 .spine {
   position: relative;
   flex: 1;
+  container-type: size;
   border-radius: 5px 4px 3px 3px;
   box-shadow: inset -3px 0 6px rgba(0, 0, 0, 0.18), inset 3px 0 0 rgba(255, 255, 255, 0.16);
   transform-origin: bottom center;
@@ -491,13 +492,15 @@ h1 em {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
   font-style: normal;
-  font-size: clamp(0.5rem, 0.8vw, 0.625rem);
+  /* фолбэк для браузеров без container queries: размер подобран так,
+     чтобы самое длинное слово («Литература») влезало в самый низкий корешок */
+  font-size: clamp(0.4375rem, 0.72vw, 0.53125rem);
   font-weight: 600;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.88);
   white-space: nowrap;
-  padding: 10px 0;
+  padding: 8px 0;
 }
 .spine::after {
   content: "";
@@ -516,6 +519,23 @@ h1 em {
 .spine--e { height: 64%;  background: linear-gradient(160deg, #f0f094, #cfd044); animation-delay: 0.28s; }
 .spine--e i { color: rgba(38, 71, 150, 0.92); }
 .spine--f { height: 84%;  background: linear-gradient(160deg, #4a6fc4, #2f4f9e); animation-delay: 0.34s; }
+
+/* Длина названия в «em» вместе с трекингом — чтобы подпись гарантированно
+   влезала в корешок любой высоты (Технология, Черчение, Математика,
+   Физика, Литература, История) */
+.spine--a { --spine-fit: 9.9; }
+.spine--b { --spine-fit: 7.7; }
+.spine--c { --spine-fit: 9.9; }
+.spine--d { --spine-fit: 5.9; }
+.spine--e { --spine-fit: 9.3; }
+.spine--f { --spine-fit: 6.6; }
+
+@supports (font-size: 1cqh) {
+  .spine i {
+    /* размер шрифта = свободная высота корешка / длина названия */
+    font-size: min(0.625rem, calc((100cqh - 16px) / var(--spine-fit, 9.9)));
+  }
+}
 
 @keyframes spine-in {
   from { transform: scaleY(0.15); opacity: 0; }
@@ -1735,14 +1755,14 @@ body.is-reading { overflow: hidden; }
 .shelf {
   position: relative;
   flex: 1 1 auto;
-  min-height: 132px;
+  min-height: 144px;
   max-height: 240px;
   align-self: stretch;
 }
 .shelf > span { position: relative; }
 
 @media (max-width: 680px) {
-  .shelf { min-height: 112px; max-height: 160px; }
+  .shelf { min-height: 144px; max-height: 176px; }
 }
 
 /* ---------- Явные базовые классы кнопок ---------- */
@@ -1753,7 +1773,7 @@ body.is-reading { overflow: hidden; }
 
 /* ---------- Названия на корешках не должны вылезать за книгу ---------- */
 .spine { overflow: hidden; }
-.spine i { overflow: hidden; text-overflow: ellipsis; }
+.spine i { overflow: visible; }
 
 /* ---------- Пометка об онлайн-версии в карточке издания ---------- */
 .modal__online {
