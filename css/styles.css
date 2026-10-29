@@ -1793,3 +1793,25 @@ body.is-reading { overflow: hidden; }
 }
 
 .modal__online b { color: var(--ink, #17233a); }
+
+/* ---------- Пометка «полный текст» / «учебный материал» ---------- */
+.book__kind {
+  display: inline-block;
+  margin: 0 0 8px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+  text-indent: 0;
+}
+.book__kind--full {
+  color: #0b6b39;
+  background: rgba(0, 144, 64, 0.12);
+}
+.book__kind--study {
+  color: #1d4a86;
+  background: rgba(38, 71, 150, 0.1);
+}

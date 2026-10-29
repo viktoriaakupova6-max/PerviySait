@@ -74,6 +74,7 @@
           <p class="book__meta">${esc(book.category)} · ${book.year}</p>
           <h3 class="book__title">${esc(book.title)}</h3>
           <p class="book__author">${esc(book.author)}</p>
+          <p class="book__kind ${book.online ? 'book__kind--study' : 'book__kind--full'}">${book.online ? 'учебный материал' : 'полный текст'}</p>
           ${availability(book)}
           <div class="book__foot">
             ${readButton(book)}
